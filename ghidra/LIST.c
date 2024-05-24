@@ -1,11 +1,10 @@
-
 // LIST_Clear
-void LIST_Clear(undefined4 *param_1)
+void LIST_Clear(undefined4 *linkedList)
 
 {
-  *param_1 = 0;
-  param_1[1] = 0;
-  param_1[2] = 0;
+  linkedList[0] = 0;
+  linkedList[1] = 0;
+  linkedList[2] = 0;
   return;
 }
 
@@ -13,43 +12,43 @@ void LIST_Clear(undefined4 *param_1)
 // LIST_AddFront
 // param_1 is linkedList
 // param_2 is item
-void LIST_AddFront(int **param_1,int *param_2)
+void LIST_AddFront(int **linkedList,int *item)
 
 {
   int *piVar1;
 
   // If pointer is not nullptr
-  if (param_2 != (int *)0x0)
+  if (item != (int *)0x0)
   {
 	// newMember->prev
-    param_2[1] = 0;
+    item[1] = 0;
 
 	// list->first
-	piVar1 = param_1[0];
+	piVar1 = linkedList[0];
 
 	// newMember->next = list->first
-	param_2[0] = piVar1;
+	item[0] = piVar1;
 
 	// if there is no first,
 	// making this the first item
 	if (piVar1 == (int *)0x0)
 	{
 	  // list->last = newMember
-      param_1[1] = param_2;
+      linkedList[1] = item;
     }
 
 	// if a member is already on the list
 	else
 	{
 	  // list->first->prev = newMember
-      param_1[0]->offset4 = param_2;
+      linkedList[0]->offset4 = item;
     }
 
 	// list->first = newMember
-    param_1[0] = param_2;
+    linkedList[0] = item;
 
 	// increase member count
-    param_1[2] = param_1[2] + 1;
+    linkedList[2] = linkedList[2] + 1;
   }
   return;
 }
