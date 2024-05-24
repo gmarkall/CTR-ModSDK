@@ -1,10 +1,12 @@
+#include "LIST.h"
+
 // LIST_Clear
-void LIST_Clear(undefined4 *linkedList)
+void LIST_Clear(LIST_t *linkedList)
 
 {
-  linkedList[0] = 0;
-  linkedList[1] = 0;
-  linkedList[2] = 0;
+  linkedList->first = NULL;
+  linkedList->last = NULL;
+  linkedList->count = 0;
   return;
 }
 
