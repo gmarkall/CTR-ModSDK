@@ -2196,10 +2196,10 @@ void FUN_80029e18(int param_1)
 		// recycle
 
 		// LIST_RemoveMember taken
-        FUN_800317e4(&DAT_8009056c,piVar1);
+        LIST_RemoveMember(&DAT_8009056c,piVar1);
 
 		// LIST_AddBack free
-        FUN_80031788(&DAT_80090578,piVar1);
+        LIST_AddBack(&DAT_80090578,piVar1);
       }
       piVar1 = piVar2;
     } while (piVar2 != (int *)0x0);
@@ -3075,10 +3075,10 @@ void FUN_8002ab18(byte *param_1)
 		*(byte *)(piVar1 + 2) = *(byte *)(piVar1 + 2) & 0xfe;
 
 		// LIST_RemoveMember taken
-        FUN_800317e4(&DAT_8009056c,piVar1);
+        LIST_RemoveMember(&DAT_8009056c,piVar1);
 
 		// LIST_AddBack free
-        FUN_80031788(&DAT_80090578,piVar1);
+        LIST_AddBack(&DAT_80090578,piVar1);
       }
       piVar1 = piVar2;
     } while (piVar2 != (int *)0x0);
@@ -3852,10 +3852,10 @@ int FUN_8002b608(short param_1,char param_2,uint param_3,undefined4 *param_4)
 		// remove from taken list, recycle slot
 
 		// LIST_RemoveMember channelTaken
-        FUN_800317e4(&DAT_8009056c,piVar5);
+        LIST_RemoveMember(&DAT_8009056c,piVar5);
 
 		// LIST_AddBack channelFree
-        FUN_80031788(&DAT_80090578,piVar5);
+        LIST_AddBack(&DAT_80090578,piVar5);
       }
       piVar5 = piVar6;
     } while (piVar6 != (int *)0x0);
@@ -3877,10 +3877,10 @@ int FUN_8002b608(short param_1,char param_2,uint param_3,undefined4 *param_4)
 	// grab a slot and start the channel
 
 	// LIST_RemoveMember channelFree (first)
-    FUN_800317e4(&DAT_80090578,DAT_80090578);
+    LIST_RemoveMember(&DAT_80090578,DAT_80090578);
 
     // LIST_AddBack channelTaken
-	FUN_80031788(&DAT_8009056c,iVar7);
+	LIST_AddBack(&DAT_8009056c,iVar7);
 
 	// set channel to ON + param_3 (0x7c) for all update flags
 	(&DAT_8008fc6c)[*(byte *)(iVar7 + 9)] =
@@ -3937,10 +3937,10 @@ int FUN_8002b7d0(uint param_1,undefined4 *param_2)
   else
   {
 	// LIST_RemoveMember free
-    FUN_800317e4(&DAT_80090578,DAT_80090578);
+    LIST_RemoveMember(&DAT_80090578,DAT_80090578);
 
 	// LIST_AddBack taken
-    FUN_80031788(&DAT_8009056c,iVar1);
+    LIST_AddBack(&DAT_8009056c,iVar1);
 
 	// set channel update flags to ON + param_1 (0x7c) for all update flags
 	(&DAT_8008fc6c)[*(byte *)(iVar1 + 9)] =
@@ -4079,10 +4079,10 @@ int * FUN_8002b9b8(char param_1,uint param_2,uint param_3)
 		*(byte *)(piVar2 + 2) = *(byte *)(piVar2 + 2) & 0xfe;
 
 		// LIST_RemoveMember taken
-        FUN_800317e4(&DAT_8009056c,piVar2);
+        LIST_RemoveMember(&DAT_8009056c,piVar2);
 
 		// LIST_AddBack free
-        FUN_80031788(&DAT_80090578,piVar2);
+        LIST_AddBack(&DAT_80090578,piVar2);
 
         return piVar2;
       }
@@ -4149,10 +4149,10 @@ void FUN_8002ba90(int param_1,int param_2,char param_3)
 		*(byte *)(piVar1 + 2) = *(byte *)(piVar1 + 2) & 0xfe;
 
 		// LIST_RemoveMember taken
-        FUN_800317e4(&DAT_8009056c,piVar1);
+        LIST_RemoveMember(&DAT_8009056c,piVar1);
 
 		// LIST_AddBack free
-        FUN_80031788(&DAT_80090578,piVar1);
+        LIST_AddBack(&DAT_80090578,piVar1);
       }
       piVar1 = piVar2;
     } while (piVar2 != (int *)0x0);
@@ -4711,10 +4711,10 @@ void FUN_8002c208(void)
         *(byte *)(ppiVar1 + 2) = *(byte *)(ppiVar1 + 2) & 0xfe;
 
 		// LIST_RemoveMember taken
-        FUN_800317e4(&DAT_8009056c,ppiVar1);
+        LIST_RemoveMember(&DAT_8009056c,ppiVar1);
 
 		// LIST_AddBack free
-        FUN_80031788(&DAT_80090578,ppiVar1);
+        LIST_AddBack(&DAT_80090578,ppiVar1);
       }
     }
 
@@ -4899,10 +4899,10 @@ void FUN_8002c510(void)
       (&DAT_8008ffe8)[iVar3 * 8] = uVar6;
 
 	  // LIST_RemoveMember taken
-      FUN_800317e4(&DAT_8009056c,piVar2);
+      LIST_RemoveMember(&DAT_8009056c,piVar2);
 
 	  // LIST_AddBack free
-      FUN_80031788(&DAT_80090578,piVar2);
+      LIST_AddBack(&DAT_80090578,piVar2);
 
 	  // next member
 	  piVar2 = (int *)iVar7;
@@ -5086,10 +5086,10 @@ void FUN_8002c784(void)
         iVar8 = iVar8 + 1;
 
 		// LIST_RemoveMember free
-        FUN_800317e4(&DAT_80090578,puVar7);
+        LIST_RemoveMember(&DAT_80090578,puVar7);
 
 		// LIST_AddBack taken
-        FUN_80031788(&DAT_8009056c,puVar7);
+        LIST_AddBack(&DAT_8009056c,puVar7);
 
 		// howl_UnPauseChannel
 		// pass ChannelStats
@@ -5174,16 +5174,16 @@ void FUN_8002c918(void)
   FUN_8002dc4c();
 
   // LIST_Clear channelFree
-  FUN_80031734(&DAT_80090578);
+  LIST_Clear(&DAT_80090578);
 
   // LIST_Clear channelTaken
-  FUN_80031734(&DAT_8009056c);
+  LIST_Clear(&DAT_8009056c);
 
   // first member in list
   puVar1 = &DAT_80095e94;
 
   // LIST_Init
-  FUN_8003197c(&DAT_80090578,&DAT_80095e94,0x20,0x18);
+  LIST_Init(&DAT_80090578,&DAT_80095e94,0x20,0x18);
 
   SpuSetReverbVoice(0,0xffffff);
 
@@ -5323,14 +5323,14 @@ void FUN_8002cae0(void)
   DAT_8008d7ec = 0;
 
   // LIST_Clear free
-  FUN_80031734(&DAT_800961a4);
+  LIST_Clear(&DAT_800961a4);
 
   // LIST_Clear taken
-  FUN_80031734(&DAT_800961b4);
+  LIST_Clear(&DAT_800961b4);
 
   // LIST_Init
   // put them all on free list
-  FUN_8003197c(&DAT_800961a4,&DAT_800961c4,0x10,8);
+  LIST_Init(&DAT_800961a4,&DAT_800961c4,0x10,8);
 
   // Voiceline_ClearTimeStamp
   FUN_8002caa8();
@@ -5354,10 +5354,10 @@ void FUN_8002cb44(void)
       iVar1 = DAT_800961b8;
 
 	  // LIST_RemoveMember taken
-      FUN_800317e4(&DAT_800961b4,DAT_800961b8);
+      LIST_RemoveMember(&DAT_800961b4,DAT_800961b8);
 
 	  // LIST_AddFront free
-      FUN_80031744(&DAT_800961a4,iVar1);
+      LIST_AddFront(&DAT_800961a4,iVar1);
 
 	} while (DAT_800961b8 != 0);
   }
@@ -5528,20 +5528,20 @@ LAB_8002ce20:
         if (DAT_800961b8 == 0) goto LAB_8002cee4;
 
 		// LIST_RemoveMember taken->back
-        FUN_800317e4(&DAT_800961b4,DAT_800961b8);
+        LIST_RemoveMember(&DAT_800961b4,DAT_800961b8);
       }
 
 	  // if free voicelines are available
       else
 	  {
 		// LIST_RemoveMember free->first
-        FUN_800317e4(&DAT_800961a4,DAT_800961a4);
+        LIST_RemoveMember(&DAT_800961a4,DAT_800961a4);
 
 		iVar10 = iVar7;
       }
 
 	  // LIST_AddFront taken
-      FUN_80031744(&DAT_800961b4,iVar10);
+      LIST_AddFront(&DAT_800961b4,iVar10);
 
 LAB_8002cee4:
 
@@ -5787,10 +5787,10 @@ LAB_8002d268:
   if (DAT_800961b4 != 0)
   {
 	// LIST_RemoveMember taken
-    FUN_800317e4(&DAT_800961b4,DAT_800961b4);
+    LIST_RemoveMember(&DAT_800961b4,DAT_800961b4);
 
 	// LIST_AddBack free
-    FUN_80031788(&DAT_800961a4,iVar4);
+    LIST_AddBack(&DAT_800961a4,iVar4);
 
 	// Voiceline_StartPlay
     FUN_8002cf28(iVar4);

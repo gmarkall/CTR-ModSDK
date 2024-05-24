@@ -253,7 +253,7 @@ void FUN_800248bc(int param_1,undefined4 param_2)
 
   // LIST_GetFirstItem
   // first taken item in InstancePool
-  iVar1 = FUN_800317d8(param_1 + 0x1904);
+  iVar1 = LIST_GetFirstItem(param_1 + 0x1904);
 
   // loop through everything in InstancePool,
   // Driver, Weapons, everything non-lev
@@ -263,7 +263,7 @@ void FUN_800248bc(int param_1,undefined4 param_2)
     FUN_80024840(iVar1,param_2);
 
 	// LIST_GetNextItem
-	iVar1 = FUN_800317cc(iVar1);
+	iVar1 = LIST_GetNextItem(iVar1);
   }
   return;
 }

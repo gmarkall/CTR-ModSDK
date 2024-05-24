@@ -392,10 +392,10 @@ void FUN_800abfec(void)
   int iVar3;
   
   // LIST_Clear taken list
-  FUN_80031734(&DAT_800b2e9c);
+  LIST_Clear(&DAT_800b2e9c);
   
   // LIST_Clear free list
-  FUN_80031734(&DAT_800b2ea8);
+  LIST_Clear(&DAT_800b2ea8);
   
   // If you are not in Crystal Challenge
   if ((*(uint *)PTR_DAT_8008d2ac & 0x8000000) == 0) 
@@ -455,7 +455,7 @@ void FUN_800abfec(void)
     do 
 	{
 	  // LIST_AddFront free list
-      FUN_80031744(&DAT_800b2ea8,puVar2);
+      LIST_AddFront(&DAT_800b2ea8,puVar2);
 	  
       iVar3 = iVar3 + 1;
       puVar2 = puVar2 + 0xc;
@@ -471,10 +471,10 @@ void FUN_800ac0e4(int param_1)
   if (*(int *)(param_1 + 0x18) != 0) 
   {
 	// LIST_RemoveMember taken list
-    FUN_800317e4(&DAT_800b2e9c,*(undefined4 *)(param_1 + 0x18));
+    LIST_RemoveMember(&DAT_800b2e9c,*(undefined4 *)(param_1 + 0x18));
 	
 	// LIST_AddFront free list
-    FUN_80031744(&DAT_800b2ea8,*(undefined4 *)(param_1 + 0x18));
+    LIST_AddFront(&DAT_800b2ea8,*(undefined4 *)(param_1 + 0x18));
     
 	// MineWeapon is now destroyed
 	*(undefined2 *)(param_1 + 0x14) = 1;
@@ -505,7 +505,7 @@ void FUN_800ac13c(int param_1)
   }
   
   // LIST_RemoveBack free list
-  iVar1 = FUN_800318ec(&DAT_800b2ea8);
+  iVar1 = LIST_RemoveBack(&DAT_800b2ea8);
   
   // weaponSlot231->MineWeapon = param_1 (mineWeapon)
   *(int *)(iVar1 + 8) = param_1;
@@ -514,7 +514,7 @@ void FUN_800ac13c(int param_1)
   *(int *)(param_1 + 0x18) = iVar1;
   
   // LIST_AddFront taken list
-  FUN_80031744(&DAT_800b2e9c,iVar1);
+  LIST_AddFront(&DAT_800b2e9c,iVar1);
   
   return;
 }

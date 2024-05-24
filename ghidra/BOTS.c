@@ -398,7 +398,7 @@ LAB_8001288c:
   do
   {
 	// lazy memset
-    FUN_80031734(&DAT_8008daf8 + (iVar13 >> 0x10) * 0xc);
+    LIST_Clear(&DAT_8008daf8 + (iVar13 >> 0x10) * 0xc);
 
 	// If you are not in a cutscene and not in main menu
     if ((*(uint *)PTR_DAT_8008d2ac & 0x20002000) == 0)
@@ -1649,14 +1649,14 @@ LAB_80013fbc:
 
 		// list of drivers on each path
 		// LIST_RemoveMember (free or taken?)
-        FUN_800317e4(&DAT_8008daf8 + (int)*(short *)(iVar17 + 0x5b8) * 0xc,iVar17 + 0x598);
+        LIST_RemoveMember(&DAT_8008daf8 + (int)*(short *)(iVar17 + 0x5b8) * 0xc,iVar17 + 0x598);
 
 		// new nav path index (10 bits)
 		*(short *)(iVar17 + 0x5b8) = (short)uVar11 >> 10;
 
 		// list of drivers on each path
 		// LIST_AddFront (free or taken?)
-        FUN_80031744(&DAT_8008daf8 + uVar18 * 0xc,iVar17 + 0x598);
+        LIST_AddFront(&DAT_8008daf8 + uVar18 * 0xc,iVar17 + 0x598);
 
 		// pointer first navFrame on path
         iVar4 = *(int *)(&DAT_8008dae0 + uVar18 * 4);
@@ -1684,7 +1684,7 @@ LAB_800144a0:
 		// get driver object on list, the list of which driver is on which path
 		
 		// LIST_GetFirstItem
-        iVar15 = FUN_800317d8(&DAT_8008daf8 + (int)*(short *)(iVar17 + 0x5b8) * 0xc);
+        iVar15 = LIST_GetFirstItem(&DAT_8008daf8 + (int)*(short *)(iVar17 + 0x5b8) * 0xc);
 
 		while (iVar15 != 0) {
         	//if iVar15 - 0x598 is not player struct pointer
@@ -1705,7 +1705,7 @@ LAB_800144a0:
           sVar7 = (short)iVar3;
 
 		  // LIST_GetNextItem
-          iVar15 = FUN_800317cc();
+          iVar15 = LIST_GetNextItem();
         }
         if ((iVar4 != 0) && (sVar7 < 3))
 		{
@@ -1731,13 +1731,13 @@ LAB_800144a0:
 			{
 			  // related to nav path index
 			  // LIST_RemoveMember (free or taken?)
-              FUN_800317e4(&DAT_8008daf8 + (int)*(short *)(iVar17 + 0x5b8) * 0xc,iVar17 + 0x598);
+              LIST_RemoveMember(&DAT_8008daf8 + (int)*(short *)(iVar17 + 0x5b8) * 0xc,iVar17 + 0x598);
 
               iVar4 = (int)(uVar20 << 0x10) >> 0x1a;
               *(short *)(iVar17 + 0x5b8) = (short)uVar11 >> 10;
 
 			  // LIST_AddFront (free or taken?)
-			  FUN_80031744(&DAT_8008daf8 + iVar4 * 0xc,iVar17 + 0x598);
+			  LIST_AddFront(&DAT_8008daf8 + iVar4 * 0xc,iVar17 + 0x598);
 
 			  // pointer first navFrame on path
               iVar4 = *(int *)(&DAT_8008dae0 + iVar4 * 4);
@@ -4103,7 +4103,7 @@ LAB_80017218:
     *(undefined4 *)(iVar7 + 0x5a4) = *(undefined4 *)(&DAT_8008dae0 + (int)sVar5 * 4);
 
 	// LIST_AddFront (free or taken?)
-	FUN_80031744(&DAT_8008daf8 + (int)sVar5 * 0xc,iVar7 + 0x598);
+	LIST_AddFront(&DAT_8008daf8 + (int)sVar5 * 0xc,iVar7 + 0x598);
 
 	// Increment number of AIs
     PTR_DAT_8008d2ac[0x1cab] = PTR_DAT_8008d2ac[0x1cab] + '\x01';
@@ -4226,7 +4226,7 @@ LAB_800173e4:
       }
 
 	  // LIST_AddFront (free or taken?)
-      FUN_80031744(&DAT_8008daf8 + (int)sVar9 * 0xc,param_1 + 0x598);
+      LIST_AddFront(&DAT_8008daf8 + (int)sVar9 * 0xc,param_1 + 0x598);
 
 	  // BOTS_SetRotation
 	  FUN_80013444(param_1,0);

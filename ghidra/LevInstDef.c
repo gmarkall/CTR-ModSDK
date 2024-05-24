@@ -151,7 +151,7 @@ void FUN_80031268(int *param_1,int param_2)
 
 		// LIST_AddFront
 		// free list of instance pool
-        FUN_80031744(PTR_DAT_8008d2ac + 0x18f8,*piVar1);
+        LIST_AddFront(PTR_DAT_8008d2ac + 0x18f8,*piVar1);
       }
 
 	  // instance = InstDef

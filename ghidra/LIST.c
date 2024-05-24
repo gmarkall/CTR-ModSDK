@@ -1,6 +1,6 @@
 
 // LIST_Clear
-void FUN_80031734(undefined4 *param_1)
+void LIST_Clear(undefined4 *param_1)
 
 {
   *param_1 = 0;
@@ -13,7 +13,7 @@ void FUN_80031734(undefined4 *param_1)
 // LIST_AddFront
 // param_1 is linkedList
 // param_2 is item
-void FUN_80031744(int **param_1,int *param_2)
+void LIST_AddFront(int **param_1,int *param_2)
 
 {
   int *piVar1;
@@ -58,7 +58,7 @@ void FUN_80031744(int **param_1,int *param_2)
 // LIST_AddBack
 // param_1 is linkedList
 // param_2 is item
-void FUN_80031788(undefined4 *param_1,undefined4 *param_2)
+void LIST_AddBack(undefined4 *param_1,undefined4 *param_2)
 
 {
   int iVar1;
@@ -101,7 +101,7 @@ void FUN_80031788(undefined4 *param_1,undefined4 *param_2)
 
 
 // LIST_GetNextItem
-undefined4 FUN_800317cc(undefined4 *param_1)
+undefined4 LIST_GetNextItem(undefined4 *param_1)
 
 {
   return *param_1;
@@ -109,7 +109,7 @@ undefined4 FUN_800317cc(undefined4 *param_1)
 
 
 // LIST_GetFirstItem
-undefined4 FUN_800317d8(undefined4 *param_1)
+undefined4 LIST_GetFirstItem(undefined4 *param_1)
 
 {
   return *param_1;
@@ -117,7 +117,7 @@ undefined4 FUN_800317d8(undefined4 *param_1)
 
 
 // LIST_RemoveMember
-int * FUN_800317e4(int *param_1,int *param_2)
+int * LIST_RemoveMember(int *param_1,int *param_2)
 
 {
   // if pointer is valid
@@ -169,7 +169,7 @@ int * FUN_800317e4(int *param_1,int *param_2)
 
 
 // LIST_RemoveFront
-int * FUN_8003186c(int **param_1)
+int * LIST_RemoveFront(int **param_1)
 
 {
   int **ppiVar1;
@@ -224,7 +224,7 @@ int * FUN_8003186c(int **param_1)
 
 // only from 231
 // LIST_RemoveBack
-int * FUN_800318ec(int *param_1)
+int * LIST_RemoveBack(int *param_1)
 
 {
   int *piVar1;
@@ -287,7 +287,7 @@ int * FUN_800318ec(int *param_1)
 // param_2 pointer to member
 // param_3 size of each member
 // param_4 number of members
-void FUN_8003197c(undefined4 param_1,int param_2,int param_3,int param_4)
+void LIST_Init(undefined4 param_1,int param_2,int param_3,int param_4)
 
 {
   int iVar1;
@@ -303,7 +303,7 @@ void FUN_8003197c(undefined4 param_1,int param_2,int param_3,int param_4)
 	{
 	  // LIST_AddBack
       // add to freeItems
-      FUN_80031788(param_1,param_2);
+      LIST_AddBack(param_1,param_2);
 
 	  // reduce remaining amount by one
       iVar1 = iVar1 + -1;

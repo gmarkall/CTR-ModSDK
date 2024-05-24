@@ -154,7 +154,7 @@ void FUN_8003eeb0(int param_1)
 
 	// LIST_AddFront
 	// free list of Oscillator Pool
-    FUN_80031744(PTR_DAT_8008d2ac + 0x19c0);
+    LIST_AddFront(PTR_DAT_8008d2ac + 0x19c0);
   }
   return;
 }
@@ -199,7 +199,7 @@ LAB_8003f2dc:
 
 		// LIST_AddFront
 		// free list of particle pool
-        FUN_80031744(PTR_DAT_8008d2ac + 0x1998,param_2);
+        LIST_AddFront(PTR_DAT_8008d2ac + 0x1998,param_2);
 
 		// decrease number of particles
         *(int *)(PTR_DAT_8008d2ac + 0x1ca4) = *(int *)(PTR_DAT_8008d2ac + 0x1ca4) + -1;
@@ -1187,7 +1187,7 @@ undefined4 * FUN_80040308(undefined4 param_1,int param_2,ushort *param_3)
 
   // LIST_RemoveFront
   // first free item in Particle Pool
-  puVar5 = (undefined4 *)FUN_8003186c(PTR_DAT_8008d2ac + 0x1998);
+  puVar5 = (undefined4 *)LIST_RemoveFront(PTR_DAT_8008d2ac + 0x1998);
 
   uVar17 = 0;
 
@@ -1374,7 +1374,7 @@ undefined4 * FUN_80040308(undefined4 param_1,int param_2,ushort *param_3)
 				{
 				  // LIST_RemoveFront
 				  // first free member in Oscillator Pool
-                  iVar14 = FUN_8003186c(PTR_DAT_8008d2ac + 0x19c0);
+                  iVar14 = LIST_RemoveFront(PTR_DAT_8008d2ac + 0x19c0);
 
 				  // struct Oscillator*
                   if (iVar14 == 0) goto LAB_800406f8;

@@ -12,10 +12,10 @@ void FUN_80030fdc(int param_1)
   uVar1 = 0;
 
   // LIST_Clear free
-  FUN_80031734(param_1);
+  LIST_Clear(param_1);
 
   // LIST_Clear taken
-  FUN_80031734(param_1 + 0xc);
+  LIST_Clear(param_1 + 0xc);
 
   // If there are elements in the array
   if (*(int *)(param_1 + 0x18) != 0)
@@ -25,7 +25,7 @@ void FUN_80030fdc(int param_1)
 	{
 	  // LIST_AddFront
 	  // add to free list
-      FUN_80031744(param_1,iVar2);
+      LIST_AddFront(param_1,iVar2);
 
 	  // increment loop counter
 	  uVar1 = uVar1 + 1;
@@ -84,11 +84,11 @@ int FUN_800310d4(int *param_1)
   {
 	// remove member from free
     // LIST_RemoveMember
-    FUN_800317e4(param_1,iVar1);
+    LIST_RemoveMember(param_1,iVar1);
 
 	// add member to taken
     // LIST_AddFront
-    FUN_80031744(param_1 + 3,iVar1);
+    LIST_AddFront(param_1 + 3,iVar1);
   }
 
   return iVar1;
@@ -103,11 +103,11 @@ void FUN_8003112c(int param_1,undefined4 param_2)
 {
   // remove member from taken
   // LIST_RemoveMember
-  FUN_800317e4(param_1 + 0xc);
+  LIST_RemoveMember(param_1 + 0xc);
 
   // add member to free
   // LIST_AddFront
-  FUN_80031744(param_1,param_2);
+  LIST_AddFront(param_1,param_2);
 
   return;
 }

@@ -56,7 +56,7 @@ void FUN_80041e20(int param_1,uint param_2)
 
 	// LIST_AddFront
 	// add to free list
-    FUN_80031744(puVar1,param_1 + -8);
+    LIST_AddFront(puVar1,param_1 + -8);
   }
   return;
 }
@@ -88,7 +88,7 @@ void FUN_80041e9c(int param_1)
 
 	// LIST_AddFront
 	// add to free list of ThreadPool
-	FUN_80031744(PTR_DAT_8008d2ac + 0x18d0,param_1);
+	LIST_AddFront(PTR_DAT_8008d2ac + 0x18d0,param_1);
   }
   return;
 }
@@ -280,7 +280,7 @@ int FUN_8004205c(uint param_1,undefined4 param_2,undefined4 param_3,int param_4)
 
   // LIST_RemoveFront
   // Get first free object in object pool
-  iVar1 = FUN_8003186c(puVar3);
+  iVar1 = LIST_RemoveFront(puVar3);
 
   // if threadBucket index is less than 18
   if (uVar5 < 0x12)
@@ -295,7 +295,7 @@ int FUN_8004205c(uint param_1,undefined4 param_2,undefined4 param_3,int param_4)
 	  {
 		// LIST_RemoveFront
 		// Get first free thread in ThreadPool
-        iVar4 = FUN_8003186c(PTR_DAT_8008d2ac + 0x18d0);
+        iVar4 = LIST_RemoveFront(PTR_DAT_8008d2ac + 0x18d0);
 
 		// if you are out of room
         if (iVar4 == 0)

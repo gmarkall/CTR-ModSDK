@@ -342,7 +342,7 @@ void FUN_80030ad4(undefined4 *param_1,int param_2)
 	{
 	  // LIST_RemoveFront
 	  // get first free item in Instance Pool
-      iVar6 = FUN_8003186c(PTR_DAT_8008d2ac + 0x18f8);
+      iVar6 = LIST_RemoveFront(PTR_DAT_8008d2ac + 0x18f8);
 
 	  // NOT writing to model
 	  // InstDef + 0x10 + 0x1c
