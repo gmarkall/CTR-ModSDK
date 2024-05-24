@@ -19,40 +19,38 @@ void LIST_AddFront(int **linkedList,int *item)
 {
   int *piVar1;
 
-  // If pointer is not nullptr
-  if (item != (int *)0x0)
+
+  if (!item)
+    return;
+
+  // newMember->prev
+  item[1] = 0;
+
+  // list->first
+  piVar1 = linkedList[0];
+
+  // newMember->next = list->first
+  item[0] = piVar1;
+
+  // if there is no first,
+  // making this the first item
+  if (piVar1 == (int *)0x0)
   {
-	// newMember->prev
-    item[1] = 0;
-
-	// list->first
-	piVar1 = linkedList[0];
-
-	// newMember->next = list->first
-	item[0] = piVar1;
-
-	// if there is no first,
-	// making this the first item
-	if (piVar1 == (int *)0x0)
-	{
-	  // list->last = newMember
-      linkedList[1] = item;
-    }
-
-	// if a member is already on the list
-	else
-	{
-	  // list->first->prev = newMember
-      linkedList[0]->offset4 = item;
-    }
-
-	// list->first = newMember
-    linkedList[0] = item;
-
-	// increase member count
-    linkedList[2] = linkedList[2] + 1;
+    // list->last = newMember
+    linkedList[1] = item;
   }
-  return;
+  // if a member is already on the list
+  else
+  {
+    // list->first->prev = newMember
+    linkedList[0]->offset4 = item;
+  }
+
+  // list->first = newMember
+  linkedList[0] = item;
+
+  // increase member count
+  linkedList[2] = linkedList[2] + 1;
 }
 
 
